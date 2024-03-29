@@ -24,3 +24,25 @@ console.log(typeof score)
  let someNumber = 33
  let stringNumber = String(someNumber);  // convert into string
  console.log(typeof stringNumber)
+
+ // ***************** OPERATIONS *****************
+  let value =3 
+  let nagValue = -value  // -3
+  console.log(nagValue)
+
+//   console.log(2**3)
+//   console.log(2-2)
+//   console.log(2+3)
+//   console.log(2/2)
+//   console.log(2%3)  // => for modulus
+  
+let str1 = "hello"
+let str2 = "kumar"
+console.log(str1+ " " +str2)
+
+console.log("1"+2)  // 12
+console.log(1+"2") // 12
+console.log("1"+2+2) // 122
+console.log(1+2+"2")  // 32
+
+// prefix and postFix from mdn
