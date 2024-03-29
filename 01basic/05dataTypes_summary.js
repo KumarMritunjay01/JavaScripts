@@ -37,3 +37,32 @@ console.log(typeof bigNumber)  // bigInt
 console.log(typeof myFunction )  // function
 
 // Learn DataTypes from mdn
+
+
+
+// *********** Stack and Heap ***************
+// -> stack (Primitive)  , Heap(Non-Primitive)
+
+console.log("---Stack and Heap---")
+let myName = "Mritunjay"
+let anotherName = myName
+anotherName = "Kumar"
+
+console.log(myName)
+console.log(anotherName)
+
+// Non-Primitive Data type , so it's goes to heap
+let userOne = {
+    email:"kmritunjay525@gmail.com",
+    upi:"user@ybl",
+}
+
+let userTwo = userOne
+
+userTwo.email = "kumar@gmail.com"
+
+console.log(userOne)
+console.log(userTwo)
+
+// In stack we get Copied value not change in original value
+// but in Heap we always get Refrence value and it change in original value. (any changes then it change in original value)
