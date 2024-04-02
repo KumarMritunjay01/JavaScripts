@@ -1,0 +1,51 @@
+<!--  ****32*** Lecture-32 ***32**** -->
+<!-- All DOM selectors node -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .bg-black {
+            background:black;
+            color : white;
+        }
+    </style>
+</head>
+<body  class="bg-black">
+    <div>
+        <h1 id="title" class="heading">DOM LEARNING</h1>
+        <p>Lorem impsomg dolor sit amet.</p>
+    </div>
+</body>
+</html>
+
+<!-- All DOM selectors node  -->
+
+<!--
+
+    // for select single value
+
+1. document.getElementById("title")                 -> access by Id
+2.document.getElementById("title").id               => access id_name
+3.document.getElementById("title").className        => found className
+4. document.getElementById("title").getAttribute('id') => get Id_name
+5. document.getElementById("title").getAttribute('class') => get class_Name
+6. document.getElementById("title").getAttribute('class').setAttribute('class', 'test heading')  // for set the value
+7. const title = document.getElementById("title")    => make variable
+8. title.style.backgroundColor='green'   // set green color (set all style using created variable)
+9. Learn about innerText & innerContent  & innerHTML
+10. document.querySelector("h1")   => give the first h1
+11. document.querySelector("#id")   => select id
+12. document.querySelector(".id")   => select class  (all css selector suport)
+13 variable.querySelector('abc')  => when we want to select for varible chield
+
+// select all element / more element
+
+1. document.querySelectorAll('li')  // -> Select all Li list
+2. variable[0].style.color = 'green'  // if you want to style 0 index of node list
+
+// conver Node list into Array
+  -> Array.from(Variable_name / node List_name)  // -> also store in variable and aply map function
+-->
