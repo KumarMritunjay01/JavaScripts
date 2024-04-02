@@ -1,0 +1,35 @@
+// ****31*** Lecture-31 ****31****
+// (DOM) -> Document Object Model
+
+<!DOCTYPE html>   // tell about document type 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+// Flow of DOM
+// console.log(window)  -> window -> object
+// console.log(document) -> or console.dir(document)
+
+/*  => working of DOM
+
+  window -> document -> (1) HTML
+    (1.1) -> Head
+        (1.1.1) -> title -> text node
+        (1.1.2) -> meta  -> atributes
+
+    (1.2) -> Body
+        (1.2.1) -> <div> -> atributes
+        (1.2.2) -> <h1> -> atributes , text nodes
+        (1.2.3) paragraph -> atributes
+*/
+
+// asscessing and updating DOM
+
+// for selection  -> document.getElementById("id_name")
+// manipulation  -> document.getElementById("id_name").innerHTML = "<h1>Hello</h1>"   // replace with Hello
