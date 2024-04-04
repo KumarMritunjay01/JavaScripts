@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <!-- also use onclick="alert('owl')  but it is not right way we can use by JS-->
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>  
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // select id of owl
+    //  const owl = document.querySelector('#owl').onclick = function(){
+    //     alert('owl')
+    // }
+
+    // best method to use eventLisner
+    // click -> event Name , false->default parameter
+    document.getElementById('owl').addEventListener('click',function(){
+        // alert('owl clicked again')
+    },false)
+
+    // attachEvent() method
+    // jQuery - oneventListener
+
+    // Event object :- cosole.log(e)
+    // Event-Listener 
+        // => type , timestamp, defaultPrevented , target , toElement , currentTarget,
+        //clientX , clientY , screenX , screenY , 
+        // altkey , ctrlkey , shiftKey , keyCode
+
+// event Bubling => move Bottom to top
+
+/*
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log("click Inside the ul")  // print "click Inside the ul"
+    },false)
+
+    document.querySelector('#owl').addEventListener('click',function(e){
+        console.log("owl clicked")  // print both  (1.)'owl clicked' & (2)'click Inside the ul' => (due to evetn Bubling)
+    },false)
+*/
+
+// event capturing mode
+
+/*
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log("click Inside the ul")  // print "click Inside the ul"
+    },true)
+
+    document.querySelector('#owl').addEventListener('click',function(e){
+        console.log("owl clicked")  // print both (1)'click Inside the ul' & (2.)'owl clicked' => (due to evetn capturing)
+    },true)
+
+*/
+    // Event propagation -> ture/false
+    // 1> -> event Bubling => move Bottom to top
+    // 2. event capturing mode => move top - bottom
+
+// stop propagation => for stop the bubling (i.e. only clicked which one is selected not outer one)
+
+    /*
+
+    document.querySelector('#images').addEventListener('click',function(e){
+            console.log("click Inside the ul")  // print "click Inside the ul"
+        },false)
+
+        document.querySelector('#owl').addEventListener('click',function(e){
+            e.stopPropagation();
+            console.log("owl clicked")  // print Only 'owl clicked' => (due to stop propagation)
+        },false)  // set propagation must be false
+
+    */
+// Prevent default ->
+
+    
+
+    document.getElementById('google').addEventListener('click', function(e){
+        e.preventDefault()
+        console.log("google clicked")    // prevent by click event renderring page
+        e.stopPropagation();
+    },false)
+
+    
+
+// project -> when we clicked on any images then that image is removed
+    document.querySelector('#images').addEventListener('click',function(e){
+        // console.log(e.target)              // -> target is use for kaha se value aa rha h o batata h
+        // console.log(e.target.parentNode)    // when click any image we get parent node
+        let removedIt = e.target.parentNode
+        //first aproch
+        // removedIt.remove()   // =>Both aproach working fine but we cliked outside the images then remove all img.
+        // secod aproach
+        // removedIt.parentNode.removeChild(removedIt)
+        console.log(e.target.tagName);
+        if(e.target.tagName ==='IMG'){
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+            removeIt.remove()
+        }
+    },false)
+
+</script>
+</html>
