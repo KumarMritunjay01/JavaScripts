@@ -1,0 +1,52 @@
+<!-- ****39*** Lecture-39 ***39***** -->
+<!--  ------API Request V8 Engine-----  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color:white">
+    0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete.
+
+<script>
+
+    /*
+     -> DO LATER ON
+
+        object se photo nikaliye , followers or make a card in body using js data milane ke bad ek button banaiye body me
+        after click photo aana chahiye or follower count aana chahiye
+    */
+   
+    const requestUrl = 'https://api.github.com/users/mritunjay'
+
+    const xhr = new XMLHttpRequest();    // this is class so, make aobject
+    xhr.open('GET',requestUrl)  // use for send request -> GET is type of request
+    // console.log("HERE")
+
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);     // state change -> 2,3,4
+        if(xhr.readyState===4){
+            let data = this.responseText;
+            // console.log(this.responseText)    // responseText is variable -> this - for current context
+            console.log(data.followers)   // type of data is string so, we found undefined
+            // console.log(data)
+            console.log(typeof data)   // string (not object) -> most of the case data found from api is "string"
+            
+            // conver string into JSON
+            data = JSON.parse(this.responseText);
+            console.log(typeof data)  // object
+            console.log(data.followers) // 2
+        }
+    }
+    
+    xhr.send()  // call the open
+</script>
+</body>
+</html>
